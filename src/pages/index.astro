@@ -1,14 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-import Footer from "../sections/Footer.astro"
-import Hero from "../sections/hero.astro"
-import Header from "../sections/Header.astro"
-
+import Footer from "../sections/Footer.astro";
+import Header from "../sections/Header.astro";
+import Kinesiologia from "../sections/Kinesiologia.astro";
 ---
 
 <Layout>
-	<Header />
-	<Hero />
-	<Footer />
+	<div class="flex min-h-screen flex-col">
+		<Header />
+		<div class="flex-1">
+			<Kinesiologia />
+		</div>
+		<Footer />
+	</div>
 </Layout>
