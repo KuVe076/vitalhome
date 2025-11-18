@@ -1,1 +1,67 @@
-<footer></footer>
+---
+// src/sections/Footer.astro
+
+// Importamos los íconos de redes sociales.
+// Puedes usar un componente <Icon /> si prefieres, pero para simplicidad los pondré directamente.
+import FacebookIcon from '../components/icons/Facebook.astro';
+import InstagramIcon from '../components/icons/Instagram.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+---
+
+<!-- 
+  Usamos el gris oscuro de tu paleta para el fondo y un color de texto claro.
+  El padding (py-12 px-6) le da espacio para respirar.
+-->
+<footer class="bg-[#4A4A4A] text-gray-200">
+  <div class="container mx-auto px-6 py-12">
+    <!-- 
+      Grid responsivo:
+      - 1 columna en móviles (grid-cols-1)
+      - 3 columnas en pantallas medianas y más grandes (md:grid-cols-3)
+      - 'gap-10' para el espacio entre columnas.
+    -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      <!-- Columna 1: Descripción de VitalHome -->
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-4">
+          <span class="text-[#429E9D]">Vital</span>Home
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          VITALHOME CHILE se enfoca en la prestación de servicios clínicos externos domiciliarios, contando con equipos profesionales calificados y con procedimientos de alta calidad.
+        </p>
+      </div>
+
+      <!-- Columna 2: Redes Sociales -->
+      <div class="md:text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Nuestras Redes<br> Sociales
+        </h2>
+        <div class="flex gap-4 mt-4 md:justify-center">
+          <a href="#" aria-label="Facebook" class="text-white hover:opacity-80 transition-opacity">
+            <FacebookIcon class="h-10 w-10" />
+          </a>
+          <a href="#" aria-label="Instagram" class="text-white hover:opacity-80 transition-opacity">
+            <InstagramIcon class="h-10 w-10" />
+          </a>
+          <a href="#" aria-label="LinkedIn" class="text-white hover:opacity-80 transition-opacity">
+            <LinkedInIcon class="h-10 w-10" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 3: Contacto -->
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-4">Contáctanos</h2>
+        <address class="text-gray-300 not-italic leading-relaxed">
+          1 SUR # 690, OF. 815,<br>
+          TALCA<br>
+          <a href="mailto:contacto@vitalhomechile.cl" class="hover:text-white transition-colors">
+            contacto@vitalhomechile.cl
+          </a>
+        </address>
+      </div>
+
+    </div>
+  </div>
+</footer>
