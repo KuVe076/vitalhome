@@ -1,0 +1,22 @@
+body {
+  background-image: url('/backgroundVital.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.logo {
+  height: 60px;
+}
+
+.slot {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.slot:hover {
+  background-color: #e2e6ea;
+}

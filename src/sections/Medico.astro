@@ -1,0 +1,173 @@
+---
+// src/sections/Medico.astro
+---
+
+<!-- 
+  Contenedor principal con fondo gris claro (o el color que tengas en tu body)
+  y padding para que no esté pegado a los bordes.
+-->
+<main class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Título Principal -->
+        <h1
+            class="text-3xl sm:text-4xl font-bold text-[#4875A2] text-center mb-10"
+        >
+            Registro Médico
+        </h1>
+
+        <!-- 
+      El <form> envuelve todas las secciones.
+      'space-y-8' añade un espacio vertical consistente entre cada tarjeta.
+    -->
+        <form class="space-y-8">
+            <!-- Card: Datos Del Paciente -->
+            <section
+                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+            >
+                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                    Datos Del Paciente
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label
+                            for="nombre-paciente"
+                            class="block text-sm font-medium text-gray-600 mb-1"
+                            >Nombre Completo</label
+                        >
+                        <input
+                            type="text"
+                            id="nombre-paciente"
+                            name="nombre-paciente"
+                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="rut-paciente"
+                            class="block text-sm font-medium text-gray-600 mb-1"
+                            >Rut</label
+                        >
+                        <input
+                            type="text"
+                            id="rut-paciente"
+                            name="rut-paciente"
+                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card: Ficha de Visita y Profesional -->
+            <section
+                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+            >
+                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                    Ficha de Visita
+                </h2>
+                <!-- Campo Fecha con icono -->
+                <div class="relative max-w-sm">
+                    <label
+                        for="fecha-visita"
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Fecha Visita (*)</label
+                    >
+                    <input
+                        type="date"
+                        id="fecha-visita"
+                        name="fecha-visita"
+                        class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2] pr-10"
+                    />
+                    <div
+                        class="absolute inset-y-0 right-0 top-6 flex items-center pr-3 pointer-events-none"
+                    >
+                    </div>
+                </div>
+
+                <h3
+                    class="text-xl font-semibold text-[#4875A2] mt-8 mb-4 pt-4 border-t border-gray-200"
+                >
+                    Profesional
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label
+                            for="nombre-profesional"
+                            class="block text-sm font-medium text-gray-600 mb-1"
+                            >Nombre Profesional</label
+                        >
+                        <input
+                            type="text"
+                            id="nombre-profesional"
+                            name="nombre-profesional"
+                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            for="run-profesional"
+                            class="block text-sm font-medium text-gray-600 mb-1"
+                            >RUN Profesional</label
+                        >
+                        <input
+                            type="text"
+                            id="run-profesional"
+                            name="run-profesional"
+                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                        />
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Card: Intervención Enfermeria-->
+            <section
+                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+            >
+                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                    Estado del Paciente
+                </h2>
+
+                <!-- Estado del Paciente -->
+         
+                <div class="flex items-center space-x-4 mb-8">
+                <label for="estado-paciente" class="text-gray-700 font-medium whitespace-nowrap">Estado del Paciente</label>
+                <select id="estado-paciente" name="estado-paciente" class="form-select max-w-xs w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                <option value="bueno">Bueno</option>
+                <option value="regular">Regular</option>
+                <option value="malo">Malo</option>
+                </select>
+                </div>
+            </section>
+
+            <!-- Contenedor para Signos Vitales -->
+            <section
+                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+            >
+                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                    Indicaciones Médicas
+                </h2>
+      
+                <!-- Grid principal de 1 columna para Signos Vitales -->
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+        
+                    <!-- Columna 1: FC, FR, T -->
+                    <div class="space-y-4">
+                    <div class="flex items-center justify-between space-x-2">
+                        <input type="text" id="fc" name="fc" class="form-input w-full h-20 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                    </div>
+                    </div>
+                </div>
+                </section>
+                </div>
+   
+            <!-- Botón de Guardar (no está en la imagen pero es necesario) -->
+            <div class="flex justify-end pt-4">
+                <button
+                    type="submit"
+                    class="bg-[#fec503] text-gray-900 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-amber-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                >
+                    Guardar Registro
+                </button>
+            </div>
+        </form>
+    </div>
+</main>

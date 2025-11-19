@@ -1,0 +1,26 @@
+<form id="formReporte" class="row g-3">
+  <div class="col-md-4">
+    <label for="reporte_rut">RUT Profesional</label>
+    <input type="text" class="form-control" id="reporte_rut" />
+  </div>
+  <div class="col-md-4">
+    <label for="reporte_inicio">Fecha Inicio</label>
+    <input type="date" class="form-control" id="reporte_inicio" />
+  </div>
+  <div class="col-md-4">
+    <label for="reporte_fin">Fecha Fin</label>
+    <input type="date" class="form-control" id="reporte_fin" />
+  </div>
+  <div class="col-md-4">
+    <label for="reporte_estado">Estado</label>
+    <select class="form-select" id="reporte_estado">
+      <option value="">Todos</option>
+      <option value="activa">Activa</option>
+      <option value="cancelada">Cancelada</option>
+      <option value="reprogramada">Reprogramada</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary w-100">Generar Reporte</button>
+  </div>
+</form>

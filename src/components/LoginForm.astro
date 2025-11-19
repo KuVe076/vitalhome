@@ -1,0 +1,27 @@
+<div class="login-container">
+  <img src="/LogoVitalHome.png" alt="Logo VitalHome" />
+  <form id="login-form">
+    <div class="input-group">
+      <input
+        type="text"
+        id="rut"
+        placeholder="RUT"
+        maxlength="12"
+        oninput="formatearYValidarRUT(this)"
+      />
+      <div id="rut-error" class="error"></div>
+    </div>
+    <div class="input-group">
+      <input
+        type="password"
+        id="password"
+        placeholder="Contraseña"
+        maxlength="8"
+        oninput="validarCampos()"
+      />
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      <div id="password-error" class="error"></div>
+    </div>
+    <button id="submitBtn" type="submit" disabled>Ingresar</button>
+  </form>
+</div>
