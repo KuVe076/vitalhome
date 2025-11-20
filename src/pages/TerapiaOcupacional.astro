@@ -1,317 +1,372 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../sections/Header.astro'; 
-import Footer from '../sections/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../sections/Header.astro";
+import Footer from "../sections/Footer.astro";
 ---
 
 <Layout title="TerapiaOcupacional">
     <!-- 3. AGREGAMOS EL HEADER -->
     <Header />
-<main class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto">
-        <!-- Título Principal -->
-        <h1
-            class="text-3xl sm:text-4xl font-bold text-[#4875A2] text-center mb-10"
-        >
-            Registro Terapia Ocupacional
-        </h1>
+    <main
+        class="bg-[url('/backgroundVital.jpg')] bg-cover bg-center bg-no-repeat bg-fixed text-gray-800 font-sans p-4 sm:p-6 md:p-8"
+    >
+        <div class="max-w-4xl mx-auto">
+            <!-- Título Principal -->
+            <!-- CAMBIO 2: Título en blanco con sombra para contraste -->
+            <h1
+                class="text-3xl sm:text-4xl font-bold text-white drop-shadow-md text-center mb-10"
+            >
+                Registro Terapia Ocupacional
+            </h1>
 
-        <!-- 
+            <!-- 
       El <form> envuelve todas las secciones.
       'space-y-8' añade un espacio vertical consistente entre cada tarjeta.
     -->
-        <form class="space-y-8">
-            <!-- Card: Datos Del Paciente -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Datos Del Paciente
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label
-                            for="nombre-paciente"
-                            class="block text-sm font-medium text-gray-600 mb-1"
-                            >Nombre Completo</label
-                        >
-                        <input
-                            type="text"
-                            id="nombre-paciente"
-                            name="nombre-paciente"
-                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
-                        />
-                    </div>
-                    <div>
-                        <label
-                            for="rut-paciente"
-                            class="block text-sm font-medium text-gray-600 mb-1"
-                            >Rut</label
-                        >
-                        <input
-                            type="text"
-                            id="rut-paciente"
-                            name="rut-paciente"
-                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            <!-- Card: Ficha de Visita y Profesional -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Ficha de Visita
-                </h2>
-                <!-- Campo Fecha con icono -->
-                <div class="relative max-w-sm">
-                    <label
-                        for="fecha-visita"
-                        class="block text-sm font-medium text-gray-600 mb-1"
-                        >Fecha Visita (*)</label
-                    >
-                    <input
-                        type="date"
-                        id="fecha-visita"
-                        name="fecha-visita"
-                        class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2] pr-10"
-                    />
-                    <div
-                        class="absolute inset-y-0 right-0 top-6 flex items-center pr-3 pointer-events-none"
-                    >
-                    </div>
-                </div>
-
-                <h3
-                    class="text-xl font-semibold text-[#4875A2] mt-8 mb-4 pt-4 border-t border-gray-200"
+            <form class="space-y-8">
+                <!-- Card: Datos Del Paciente -->
+                <section
+                    class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
                 >
-                    Profesional
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Datos Del Paciente
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                for="nombre-paciente"
+                                class="block text-sm font-medium text-gray-600 mb-1"
+                                >Nombre Completo</label
+                            >
+                            <input
+                                type="text"
+                                id="nombre-paciente"
+                                name="nombre-paciente"
+                                class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="rut-paciente"
+                                class="block text-sm font-medium text-gray-600 mb-1"
+                                >Rut</label
+                            >
+                            <input
+                                type="text"
+                                id="rut-paciente"
+                                name="rut-paciente"
+                                class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card: Ficha de Visita y Profesional -->
+                <section
+                    class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+                >
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Ficha de Visita
+                    </h2>
+                    <!-- Campo Fecha con icono -->
+                    <div class="relative max-w-sm">
                         <label
-                            for="nombre-profesional"
+                            for="fecha-visita"
                             class="block text-sm font-medium text-gray-600 mb-1"
-                            >Nombre Profesional</label
+                            >Fecha Visita (*)</label
                         >
                         <input
-                            type="text"
-                            id="nombre-profesional"
-                            name="nombre-profesional"
-                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                            type="date"
+                            id="fecha-visita"
+                            name="fecha-visita"
+                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2] pr-10"
                         />
-                    </div>
-                    <div>
-                        <label
-                            for="run-profesional"
-                            class="block text-sm font-medium text-gray-600 mb-1"
-                            >RUN Profesional</label
+                        <div
+                            class="absolute inset-y-0 right-0 top-6 flex items-center pr-3 pointer-events-none"
                         >
-                        <input
-                            type="text"
-                            id="run-profesional"
-                            name="run-profesional"
-                            class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
-                        />
+                        </div>
                     </div>
-                </div>
-            </section>
 
-                        <!-- Card: Intervención TerapiaOcupacional -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Estado del Paciente
-                </h2>
+                    <h3
+                        class="text-xl font-semibold text-[#4875A2] mt-8 mb-4 pt-4 border-t border-gray-200"
+                    >
+                        Profesional
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                for="nombre-profesional"
+                                class="block text-sm font-medium text-gray-600 mb-1"
+                                >Nombre Profesional</label
+                            >
+                            <input
+                                type="text"
+                                id="nombre-profesional"
+                                name="nombre-profesional"
+                                class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="run-profesional"
+                                class="block text-sm font-medium text-gray-600 mb-1"
+                                >RUN Profesional</label
+                            >
+                            <input
+                                type="text"
+                                id="run-profesional"
+                                name="run-profesional"
+                                class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                            />
+                        </div>
+                    </div>
+                </section>
 
-                <!-- Estado del Paciente -->
-         
-                <div class="flex items-center space-x-4 mb-8">
-                <label for="estado-paciente" class="text-gray-700 font-medium whitespace-nowrap">Estado del Paciente</label>
-                <select id="estado-paciente" name="estado-paciente" class="form-select max-w-xs w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                <option value="bueno">Bueno</option>
-                <option value="regular">Regular</option>
-                <option value="malo">Malo</option>
-                </select>
-                </div>
-            </section>
+                <!-- Card: Intervención TerapiaOcupacional -->
+                <section
+                    class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+                >
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Estado del Paciente
+                    </h2>
 
-<!-- Card: Intervención Terapeuta Ocupacional -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Intervención Terapeuta Ocupacional
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
-                    <!-- Columna Izquierda -->
-                    <div class="space-y-3">
+                    <!-- Estado del Paciente -->
+
+                    <div class="flex items-center space-x-4 mb-8">
                         <label
-                            class="flex items-center text-gray-700 cursor-pointer"
+                            for="estado-paciente"
+                            class="text-gray-700 font-medium whitespace-nowrap"
+                            >Estado del Paciente</label
                         >
-                            <!-- 
+                        <select
+                            id="estado-paciente"
+                            name="estado-paciente"
+                            class="form-select max-w-xs w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                        >
+                            <option value="bueno">Bueno</option>
+                            <option value="regular">Regular</option>
+                            <option value="malo">Malo</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Card: Intervención Terapeuta Ocupacional -->
+                <section
+                    class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
+                >
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Intervención Terapeuta Ocupacional
+                    </h2>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4"
+                    >
+                        <!-- Columna Izquierda -->
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
+                            >
+                                <!-- 
           Usa el mismo 'name' para todos los radio buttons del grupo.
           Esto asegura que solo uno pueda ser seleccionado.
         -->
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="Descanso"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">DESCANSO Y SUEÑO</span>
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="ktr-aspiracion"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3"
-                                >VOZ</span
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="Descanso"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">DESCANSO Y SUEÑO</span>
+                            </label>
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
                             >
-                        </label>
-                                                <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="Juego-Ocio"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3"
-                                >JUEGO Y OCIO</span
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="ktr-aspiracion"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">VOZ</span>
+                            </label>
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
                             >
-                        </label>
-                    </div>
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="Juego-Ocio"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">JUEGO Y OCIO</span>
+                            </label>
+                        </div>
 
-                    <!-- Columna Centro -->
-                    <div class="space-y-3">
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="ActividadesBasicas"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">ACT. BAS. VIDA DIARIA </span>
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="Participacion-Social"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3"
-                                >PARTICIPACIÓN SOCIAL</span
+                        <!-- Columna Centro -->
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
                             >
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="ActividadesInstrumentales"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">ACT. INST. VIDA DIARIA</span>
-                        </label>
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="ActividadesBasicas"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">ACT. BAS. VIDA DIARIA </span>
+                            </label>
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
+                            >
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="Participacion-Social"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">PARTICIPACIÓN SOCIAL</span>
+                            </label>
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
+                            >
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="ActividadesInstrumentales"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">ACT. INST. VIDA DIARIA</span>
+                            </label>
+                        </div>
+                        <!-- Columna Derecha -->
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
+                            >
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="Educacion"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">EDUCACIÓN</span>
+                            </label>
+                            <label
+                                class="flex items-center text-gray-700 cursor-pointer"
+                            >
+                                <input
+                                    type="radio"
+                                    name="intervencion-terapeuta"
+                                    value="DesempeñoLaboral"
+                                    class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
+                                />
+                                <span class="ml-3">DESEMPEÑO LABORAL</span>
+                            </label>
+                        </div>
                     </div>
-                    <!-- Columna Derecha -->
-                    <div class="space-y-3">
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="Educacion"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">EDUCACIÓN</span>
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-terapeuta"
-                                value="DesempeñoLaboral"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">DESEMPEÑO LABORAL</span>
-                        </label>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-
-            <!-- Contenedor para Signos Vitales -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Signos Vitales
-                </h2>
-      
-                <!-- Grid principal de 3 columnas para Signos Vitales -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-                    <!-- Columna 1: FC, FR, T -->
-                    <div class="space-y-4">
-                    <div class="flex items-center justify-between space-x-2">
-                        <label for="fc" class="font-medium text-gray-600">FC</label>
-                        <input type="text" id="fc" name="fc" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    <div class="flex items-center justify-between space-x-2">
-                        <label for="fr" class="font-medium text-gray-600">FR</label>
-                        <input type="text" id="fr" name="fr" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    <div class="flex items-center justify-between space-x-2">
-                        <label for="t" class="font-medium text-gray-600">T°</label>
-                        <input type="text" id="t" name="t" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    </div>
-
-                    <!-- Columna 2: SpO2, O2 Adicional -->
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between space-x-2">
-                    <label for="spo2" class="font-medium text-gray-600">SpO2</label>
-                    <input type="text" id="spo2" name="spo2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    <div class="flex items-center justify-between space-x-2">
-                    <label for="o2" class="font-medium text-gray-600 whitespace-nowrap">O2 Adicional<br>Lt/min</label>
-                    <input type="text" id="o2" name="o2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                </div>
-                </div>
-                </div>
-   
-            <!-- Botón de Guardar (no está en la imagen pero es necesario) -->
-            <div class="flex justify-end pt-4">
-                <button
-                    type="submit"
-                    class="bg-[#fec503] text-gray-900 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-amber-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                <!-- Contenedor para Signos Vitales -->
+                <section
+                    class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
                 >
-                    Guardar Registro
-                </button>
-            </div>
-        </form>
-    </div>
-</main>
-    <Footer />
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Signos Vitales
+                    </h2>
 
+                    <!-- Grid principal de 3 columnas para Signos Vitales -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Columna 1: FC, FR, T -->
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-center justify-between space-x-2"
+                            >
+                                <label
+                                    for="fc"
+                                    class="font-medium text-gray-600">FC</label
+                                >
+                                <input
+                                    type="text"
+                                    id="fc"
+                                    name="fc"
+                                    class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                                />
+                            </div>
+                            <div
+                                class="flex items-center justify-between space-x-2"
+                            >
+                                <label
+                                    for="fr"
+                                    class="font-medium text-gray-600">FR</label
+                                >
+                                <input
+                                    type="text"
+                                    id="fr"
+                                    name="fr"
+                                    class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                                />
+                            </div>
+                            <div
+                                class="flex items-center justify-between space-x-2"
+                            >
+                                <label for="t" class="font-medium text-gray-600"
+                                    >T°</label
+                                >
+                                <input
+                                    type="text"
+                                    id="t"
+                                    name="t"
+                                    class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Columna 2: SpO2, O2 Adicional -->
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-center justify-between space-x-2"
+                            >
+                                <label
+                                    for="spo2"
+                                    class="font-medium text-gray-600"
+                                    >SpO2</label
+                                >
+                                <input
+                                    type="text"
+                                    id="spo2"
+                                    name="spo2"
+                                    class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                                />
+                            </div>
+                            <div
+                                class="flex items-center justify-between space-x-2"
+                            >
+                                <label
+                                    for="o2"
+                                    class="font-medium text-gray-600 whitespace-nowrap"
+                                    >O2 Adicional<br />Lt/min</label
+                                >
+                                <input
+                                    type="text"
+                                    id="o2"
+                                    name="o2"
+                                    class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Botón de Guardar (no está en la imagen pero es necesario) -->
+                <div class="flex justify-end pt-4">
+                    <button
+                        type="submit"
+                        class="bg-[#fec503] text-gray-900 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-amber-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                    >
+                        Guardar Registro
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <Footer />
 </Layout>
