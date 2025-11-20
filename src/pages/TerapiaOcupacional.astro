@@ -1,11 +1,12 @@
 ---
-// src/sections/TerapiaOcupacional.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../sections/Header.astro'; 
+import Footer from '../sections/Footer.astro';
 ---
 
-<!-- 
-  Contenedor principal con fondo gris claro (o el color que tengas en tu body)
-  y padding para que no esté pegado a los bordes.
--->
+<Layout title="TerapiaOcupacional">
+    <!-- 3. AGREGAMOS EL HEADER -->
+    <Header />
 <main class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 md:p-8">
     <div class="max-w-4xl mx-auto">
         <!-- Título Principal -->
@@ -311,3 +312,6 @@
         </form>
     </div>
 </main>
+    <Footer />
+
+</Layout>

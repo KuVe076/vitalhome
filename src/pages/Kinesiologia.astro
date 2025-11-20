@@ -1,0 +1,266 @@
+---
+// 1. IMPORTAMOS LOS BLOQUES NECESARIOS
+import Layout from '../layouts/Layout.astro';
+import Header from '../sections/Header.astro'; 
+import Footer from '../sections/Footer.astro';
+---
+
+<!-- 2. ENVOLVEMOS TODO EN EL LAYOUT -->
+<Layout title="Registro Kinesiología">
+  
+    <!-- 3. AGREGAMOS EL HEADER -->
+    <Header />
+
+    <!-- 4. TU CONTENIDO ORIGINAL (El Main) -->
+    <main class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 md:p-8 flex-1"> <!-- Agregué flex-1 por si la pantalla es muy grande -->
+        <div class="max-w-4xl mx-auto">
+            <!-- Título Principal -->
+            <h1 class="text-3xl sm:text-4xl font-bold text-[#4875A2] text-center mb-10">
+                Registro Kinesiología
+            </h1>
+    
+            <form class="space-y-8">
+                <!-- Card: Datos Del Paciente -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5">
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Datos Del Paciente
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombre-paciente" class="block text-sm font-medium text-gray-600 mb-1">Nombre Completo</label>
+                            <input type="text" id="nombre-paciente" name="nombre-paciente" class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]" />
+                        </div>
+                        <div>
+                            <label for="rut-paciente" class="block text-sm font-medium text-gray-600 mb-1">Rut</label>
+                            <input type="text" id="rut-paciente" name="rut-paciente" class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]" />
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Card: Ficha de Visita y Profesional -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5">
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Ficha de Visita
+                    </h2>
+                    <div class="relative max-w-sm">
+                        <label for="fecha-visita" class="block text-sm font-medium text-gray-600 mb-1">Fecha Visita (*)</label>
+                        <input type="date" id="fecha-visita" name="fecha-visita" class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2] pr-10" />
+                    </div>
+    
+                    <h3 class="text-xl font-semibold text-[#4875A2] mt-8 mb-4 pt-4 border-t border-gray-200">
+                        Profesional
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombre-profesional" class="block text-sm font-medium text-gray-600 mb-1">Nombre Profesional</label>
+                            <input type="text" id="nombre-profesional" name="nombre-profesional" class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]" />
+                        </div>
+                        <div>
+                            <label for="run-profesional" class="block text-sm font-medium text-gray-600 mb-1">RUN Profesional</label>
+                            <input type="text" id="run-profesional" name="run-profesional" class="form-input w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]" />
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Card: Intervención Kinésica -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5">
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
+                        Intervención Kinésica
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                        <div class="space-y-3">
+                            <label class="flex items-center text-gray-700 cursor-pointer">
+                                <input type="radio" name="intervencion-kinesica" value="ktr" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" />
+                                <span class="ml-3">KTR</span>
+                            </label>
+                            <label class="flex items-center text-gray-700 cursor-pointer">
+                                <input type="radio" name="intervencion-kinesica" value="ktr-aspiracion" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" />
+                                <span class="ml-3">KTR + Aspiración Secreciones</span>
+                            </label>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="flex items-center text-gray-700 cursor-pointer">
+                                <input type="radio" name="intervencion-kinesica" value="ktm" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" />
+                                <span class="ml-3">KTM</span>
+                            </label>
+                            <label class="flex items-center text-gray-700 cursor-pointer">
+                                <input type="radio" name="intervencion-kinesica" value="emi" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" />
+                                <span class="ml-3">EMI</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Card: Examen Físico -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5">
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">Examen Físico</h2>
+                    <div class="flex items-center space-x-4 mb-8">
+                        <label for="estado-paciente" class="text-gray-700 font-medium whitespace-nowrap">Estado del Paciente</label>
+                        <select id="estado-paciente" name="estado-paciente" class="form-select max-w-xs w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                            <option value="bueno">Bueno</option>
+                            <option value="regular">Regular</option>
+                            <option value="malo">Malo</option>
+                        </select>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="pt-6 border-t border-gray-200">
+                            <h3 class="text-xl font-semibold text-[#4875A2] mb-6">Signos Vitales</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between space-x-2">
+                                        <label for="fc" class="font-medium text-gray-600">FC</label>
+                                        <input type="text" id="fc" name="fc" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                    </div>
+                                    <div class="flex items-center justify-between space-x-2">
+                                        <label for="fr" class="font-medium text-gray-600">FR</label>
+                                        <input type="text" id="fr" name="fr" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                    </div>
+                                    <div class="flex items-center justify-between space-x-2">
+                                        <label for="t" class="font-medium text-gray-600">T°</label>
+                                        <input type="text" id="t" name="t" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between space-x-2">
+                                        <label for="spo2" class="font-medium text-gray-600">SpO2</label>
+                                        <input type="text" id="spo2" name="spo2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                    </div>
+                                    <div class="flex items-center justify-between space-x-2">
+                                        <label for="o2" class="font-medium text-gray-600 whitespace-nowrap">O2 Adicional<br>Lt/min</label>
+                                        <input type="text" id="o2" name="o2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                    </div>
+                                </div>
+                                <div class="flex space-x-6">
+                                    <div class="w-px bg-teal-400 h-full"></div>
+                                    <div class="space-y-4 w-full">
+                                        <div>
+                                            <label for="equipo-oxigeno" class="block text-sm font-medium text-gray-600 mb-1">Equipo Oxigenoterapia</label>
+                                            <select id="equipo-oxigeno" name="equipo-oxigeno" class="form-select w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                                <option value="bueno">Balón Concentrador</option>
+                                                <option value="regular">Termocriogénico de O2 Líquido</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="piel-mucosa" class="block text-sm font-medium text-gray-600 mb-1">Estado de Piel y Mucosa</label>
+                                            <select id="piel-mucosa" name="piel-mucosa" class="form-select w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                                <option value="bueno">Bueno</option>
+                                                <option value="regular">Regular</option>
+                                                <option value="malo">Malo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="pt-6 border-t border-gray-200">
+                            <h3 class="text-xl font-semibold text-[#4875A2] mb-6">Examen Pulmonar</h3>
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                    <label for="murmullo-pulmonar" class="font-medium text-gray-700">Murmullo Pulmonar</label>
+                                    <select id="murmullo-pulmonar" name="murmullo-pulmonar" class="form-select w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                        <option value="presente">Presente</option>
+                                        <option value="disminuido">Disminuído</option>
+                                        <option value="abolido">Abolido</option>
+                                    </select>
+                                    <div class="flex items-center space-x-6">
+                                        <label class="flex items-center text-gray-700 cursor-pointer">
+                                            <input type="radio" name="murmullo-obstructiva" value="si" class="form-radio h-5 w-5 text-gray-600 border-gray-400 focus:ring-gray-500">
+                                            <span class="ml-2">Si</span>
+                                        </label>
+                                        <label class="flex items-center text-gray-700 cursor-pointer">
+                                            <input type="radio" name="murmullo-obstructiva" value="no" class="form-radio h-5 w-5 text-gray-600 border-gray-400 focus:ring-gray-500">
+                                            <span class="ml-2">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                    <label for="percepcion-paciente" class="font-medium text-gray-700">Percepción del paciente</label>
+                                    <select id="percepcion-paciente" name="percepcion-paciente" class="form-select w-full rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                                        <option value="bueno">Bueno</option>
+                                        <option value="regular">Regular</option>
+                                        <option value="malo">Malo</option>
+                                    </select>
+                                    <div class="flex items-center space-x-6">
+                                        <label class="flex items-center text-gray-700 cursor-pointer">
+                                            <input type="radio" name="percepcion-humedad" value="si" class="form-radio h-5 w-5 text-gray-600 border-gray-400 focus:ring-gray-500">
+                                            <span class="ml-2">Si</span>
+                                        </label>
+                                        <label class="flex items-center text-gray-700 cursor-pointer">
+                                            <input type="radio" name="percepcion-humedad" value="no" class="form-radio h-5 w-5 text-gray-600 border-gray-400 focus:ring-gray-500">
+                                            <span class="ml-2">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <!-- Card: Examen Motor -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5">
+                    <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">Examen Motor</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full border-separate" style="border-spacing: 0;">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-sm font-semibold text-left text-gray-700 border-b border-gray-300">SIST MUSCULO ESQUELÉTICO (deteriorado)</th>
+                                    <th class="p-3 text-sm font-semibold text-center text-gray-700 w-16 border-b border-gray-300">Si</th>
+                                    <th class="p-3 text-sm font-semibold text-center text-gray-700 w-16 border-b border-gray-300">No</th>
+                                    <th class="p-3 text-sm font-semibold text-left text-gray-700 border-b border-gray-300">SIST NEUROMUSCULAR (deteriorado)</th>
+                                    <th class="p-3 text-sm font-semibold text-center text-gray-700 w-16 border-b border-gray-300">Si</th>
+                                    <th class="p-3 text-sm font-semibold text-center text-gray-700 w-16 border-b border-gray-300">No</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 text-sm text-gray-700">Simetría Gruesa</td>
+                                    <td class="p-3 text-center"><input type="radio" name="simetria-gruesa" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="simetria-gruesa" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-sm text-gray-700">Marcha</td>
+                                    <td class="p-3 text-center"><input type="radio" name="marcha" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="marcha" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm text-gray-700">ROM Grueso</td>
+                                    <td class="p-3 text-center"><input type="radio" name="rom-grueso" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="rom-grueso" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-sm text-gray-700">Locomoción</td>
+                                    <td class="p-3 text-center"><input type="radio" name="locomocion" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="locomocion" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm text-gray-700">Fuerza Gruesa</td>
+                                    <td class="p-3 text-center"><input type="radio" name="fuerza-gruesa" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="fuerza-gruesa" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-sm text-gray-700">Balance</td>
+                                    <td class="p-3 text-center"><input type="radio" name="balance" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="balance" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-sm text-gray-700">Otra</td>
+                                    <td class="p-3 text-center"><input type="radio" name="otra" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="otra" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-sm text-gray-700">Función Motora</td>
+                                    <td class="p-3 text-center"><input type="radio" name="funcion-motora" value="si" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                    <td class="p-3 text-center"><input type="radio" name="funcion-motora" value="no" class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+    
+                <!-- Botón de Guardar -->
+                <div class="flex justify-end pt-4">
+                    <button type="submit" class="bg-[#fec503] text-gray-900 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-amber-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+                        Guardar Registro
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- 5. AGREGAMOS EL FOOTER -->
+    <Footer />
+
+</Layout>

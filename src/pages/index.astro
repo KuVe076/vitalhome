@@ -1,18 +1,71 @@
 ---
+// src/pages/index.astro
 import Layout from "../layouts/Layout.astro";
-
 import Footer from "../sections/Footer.astro";
 import Header from "../sections/Header.astro";
-import Acceso from "../sections/Acceso.astro";
+
+// 1. Buscamos automáticamente todas las páginas en la carpeta actual
+const pages = await Astro.glob('./*.astro');
+
+// 2. Filtramos para no mostrarnos a nosotros mismos (index) ni la carpeta auditoria
+const links = pages.filter(page => {
+  const fileName = page.file.split('/').pop();
+  return fileName !== 'index.astro' && !page.file.includes('/auditoria/');
+});
+
+// Función para convertir el nombre del archivo en un título bonito
+// ej: "ficha-profesional.astro" -> "Ficha Profesional"
+function formatTitle(path) {
+  const fileName = path.split('/').pop().replace('.astro', '');
+  return fileName
+    .replace(/-/g, ' ') // Reemplaza guiones por espacios
+    .replace(/([A-Z])/g, ' $1') // Agrega espacio antes de mayúsculas (CamelCase)
+    .trim();
+}
 ---
 
-<Layout>
-	<div class="flex min-h-screen flex-col">
-		<Header />
-		<div class="flex-1">
-			<Acceso />
-		</div>
-		<Footer />
-	</div>
-</Layout>
+<Layout title="Inicio - Panel Principal">
+  <div class="flex min-h-screen flex-col bg-gray-50">
+    
+    <!-- HEADER -->
+    <Header />
 
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="flex-1 container mx-auto p-8">
+      
+      <div class="mb-8 text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">Bienvenido al Sistema</h1>
+        <p class="text-gray-600">Selecciona una sección para comenzar</p>
+      </div>
+
+      <!-- GRILLA DE TARJETAS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        {links.map((page) => {
+          // Obtenemos la URL real de la página
+          const url = page.url || page.file.split('/pages')[1].replace('.astro', '');
+          const title = formatTitle(page.file);
+
+          return (
+            <a 
+              href={url}
+              class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 group"
+            >
+              <h2 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600 mb-2 capitalize">
+                {title}
+              </h2>
+              <span class="text-sm text-gray-400 group-hover:text-gray-500">
+                Ir a la página &rarr;
+              </span>
+            </a>
+          )
+        })}
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <Footer />
+</div>
+    
+</Layout>

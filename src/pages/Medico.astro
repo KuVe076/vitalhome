@@ -1,18 +1,19 @@
 ---
-// src/sections/FonoAudiologia.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../sections/Header.astro'; 
+import Footer from '../sections/Footer.astro';
 ---
 
-<!-- 
-  Contenedor principal con fondo gris claro (o el color que tengas en tu body)
-  y padding para que no esté pegado a los bordes.
--->
+<Layout title="Medico">
+    <!-- 3. AGREGAMOS EL HEADER -->
+    <Header />
 <main class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-6 md:p-8">
     <div class="max-w-4xl mx-auto">
         <!-- Título Principal -->
         <h1
             class="text-3xl sm:text-4xl font-bold text-[#4875A2] text-center mb-10"
         >
-            Registro Fonoaudiologia
+            Registro Médico
         </h1>
 
         <!-- 
@@ -118,7 +119,7 @@
                 </div>
             </section>
 
-                        <!-- Card: Intervención FonoAudiologica -->
+                        <!-- Card: Intervención Enfermeria-->
             <section
                 class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
             >
@@ -138,128 +139,25 @@
                 </div>
             </section>
 
-<!-- Card: Intervención FonoAudiologo -->
-            <section
-                class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
-            >
-                <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Intervención Fono Audiologo
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-                    <!-- Columna Izquierda -->
-                    <div class="space-y-3">
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <!-- 
-          Usa el mismo 'name' para todos los radio buttons del grupo.
-          Esto asegura que solo uno pueda ser seleccionado.
-        -->
-                            <input
-                                type="radio"
-                                name="intervencion-fonoaudiologica"
-                                value="Lenguaje"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">LENGUAJE</span>
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-fonoaudiologica"
-                                value="Voz"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3"
-                                >VOZ</span
-                            >
-                        </label>
-                    </div>
-
-                    <!-- Columna Centro -->
-                    <div class="space-y-3">
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-fonoaudiologica"
-                                value="Audición"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">AUDICIÓN</span>
-                        </label>
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-fonoaudiologica"
-                                value="Deglución"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">DEGLUCIÓN</span>
-                        </label>
-                    </div>
-
-                    <!-- Columna Derecha -->
-                    <div class="space-y-3">
-                        <label
-                            class="flex items-center text-gray-700 cursor-pointer"
-                        >
-                            <input
-                                type="radio"
-                                name="intervencion-fonoaudiologica"
-                                value="Orofacial"
-                                class="form-radio h-5 w-5 text-[#4875A2] border-gray-400 focus:ring-[#4875A2] focus:ring-offset-0 focus:ring-2"
-                            />
-                            <span class="ml-3">OROFACIAL</span>
-                        </label>
-                    </div>
-                </div>
-            </section>
-
             <!-- Contenedor para Signos Vitales -->
             <section
                 class="bg-white p-6 rounded-2xl shadow-lg ring-1 ring-gray-900/5"
             >
                 <h2 class="text-2xl font-semibold text-[#4875A2] mb-6">
-                    Signos Vitales
+                    Indicaciones Médicas
                 </h2>
       
-                <!-- Grid principal de 3 columnas para Signos Vitales -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Grid principal de 1 columna para Signos Vitales -->
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
         
                     <!-- Columna 1: FC, FR, T -->
                     <div class="space-y-4">
                     <div class="flex items-center justify-between space-x-2">
-                        <label for="fc" class="font-medium text-gray-600">FC</label>
-                        <input type="text" id="fc" name="fc" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
+                        <input type="text" id="fc" name="fc" class="form-input w-full h-20 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
                     </div>
-                    <div class="flex items-center justify-between space-x-2">
-                        <label for="fr" class="font-medium text-gray-600">FR</label>
-                        <input type="text" id="fr" name="fr" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    <div class="flex items-center justify-between space-x-2">
-                        <label for="t" class="font-medium text-gray-600">T°</label>
-                        <input type="text" id="t" name="t" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    </div>
-
-                    <!-- Columna 2: SpO2, O2 Adicional -->
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between space-x-2">
-                    <label for="spo2" class="font-medium text-gray-600">SpO2</label>
-                    <input type="text" id="spo2" name="spo2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
-                    </div>
-                    <div class="flex items-center justify-between space-x-2">
-                    <label for="o2" class="font-medium text-gray-600 whitespace-nowrap">O2 Adicional<br>Lt/min</label>
-                    <input type="text" id="o2" name="o2" class="form-input w-24 rounded-md border-gray-300 shadow-sm focus:border-[#4875A2] focus:ring-1 focus:ring-[#4875A2]">
                     </div>
                 </div>
-                </div>
+                </section>
                 </div>
    
             <!-- Botón de Guardar (no está en la imagen pero es necesario) -->
@@ -274,3 +172,6 @@
         </form>
     </div>
 </main>
+    <Footer />
+
+</Layout>
