@@ -1,0 +1,15 @@
+{
+  "profesional": {
+    "nombre": "Dra. Ana Pérez",
+    "rut": "12.345.678-9"
+  },
+  "paciente": {
+    "nombre": "Juan Soto",
+    "rut": "22.222.222-2"
+  },
+  "fecha": "2025-11-18",
+  "hora": "10:45",
+  "estado": "activa",
+  "registrado_por": "Dra. Ana Pérez",
+  "timestamp": "2025-11-17T16:30:00"
+}

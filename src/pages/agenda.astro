@@ -23,7 +23,39 @@ import '../styles/agenda.css';
       <AgendaConsulta />
       <div id="resultados" class="mt-3"></div>
     </div>
-
-    <script type="module" src="../scripts/agenda.js"></script>
+    <div class="modal fade" id="modalEditar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formEditar">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Reserva</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="edit_id" />
+          <label>Paciente</label>
+          <input type="text" class="form-control mb-2" id="edit_paciente_nombre" required />
+          <label>RUT Paciente</label>
+          <input type="text" class="form-control mb-2" id="edit_paciente_rut" required />
+          <label>Fecha</label>
+          <input type="date" class="form-control mb-2" id="edit_fecha" required />
+          <label>Hora</label>
+          <input type="time" class="form-control mb-2" id="edit_hora" step="2700" required />
+          <label>Estado</label>
+          <select class="form-select" id="edit_estado">
+            <option value="activa">Activa</option>
+            <option value="cancelada">Cancelada</option>
+            <option value="reprogramada">Reprogramada</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  <script type="module" src="../scripts/agenda.js"></script>
   </body>
 </html>
