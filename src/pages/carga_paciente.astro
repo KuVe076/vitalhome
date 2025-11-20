@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos Paciente</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('backgroundVital.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .form-container img {
+      display: block;
+      margin: 0 auto 20px;
+      width: 150px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      padding: 10px;
+      width: 30%;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #guardarBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <img src="LogoVitalHome.png" alt="Logo VitalHome">
+    <h2>Datos Paciente</h2>
+    <form id="pacienteForm">
+      <label>RUT</label>
+      <input type="text" id="rut" maxlength="12" required>
+
+      <label>Nombre *</label>
+      <input type="text" id="nombre" required>
+
+      <label>Apellidos *</label>
+      <input type="text" id="apellidos" required>
+
+      <label>Dirección *</label>
+      <input type="text" id="direccion" required>
+
+      <label>Región *</label>
+      <select id="region" required onchange="cargarComunas()"></select>
+
+      <label>Comuna *</label>
+      <select id="comuna" required></select>
+
+      <label>Mail</label>
+      <input type="email" id="mail">
+
+      <label>Fono</label>
+      <input type="number" id="fono">
+
+      <label>Grupo de Sangre</label>
+      <input type="text" id="sangre">
+
+      <div class="button-group">
+        <button type="button" onclick="crearPaciente()">Crear</button>
+        <button type="button" onclick="editarPaciente()">Editar</button>
+        <button type="submit" id="guardarBtn" disabled>Guardar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("pacienteForm");
+    const guardarBtn = document.getElementById("guardarBtn");
+
+    form.addEventListener("input", validarFormulario);
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Paciente guardado correctamente.");
+    });
+
+    function validarFormulario() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellidos = document.getElementById("apellidos").value.trim();
+      const direccion = document.getElementById("direccion").value.trim();
+      const region = document.getElementById("region").value;
+      const comuna = document.getElementById("comuna").value;
+      const mail = document.getElementById("mail").value.trim();
+      const fono = document.getElementById("fono").value.trim();
+
+      const mailValido = mail === "" || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail);
+      const fonoValido = fono === "" || /^\d+$/.test(fono);
+
+      const camposObligatorios = nombre && apellidos && direccion && region && comuna;
+      const contactoValido = mailValido && fonoValido && (mail || fono);
+
+      guardarBtn.disabled = !(camposObligatorios && contactoValido);
+    }
+
+    function cargarComunas() {
+      const region = document.getElementById("region").value;
+      const comunaSelect = document.getElementById("comuna");
+      comunaSelect.innerHTML = "";
+
+      fetch(`get_comunas.php?region=${region}`)
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(comuna => {
+            const option = document.createElement("option");
+            option.value = comuna;
+            option.textContent = comuna;
+            comunaSelect.appendChild(option);
+          });
+        });
+    }
+
+    function crearPaciente() {
+      alert("Modo creación activado.");
+    }
+
+    function editarPaciente() {
+      alert("Modo edición activado.");
+    }
+
+    // Cargar regiones al inicio
+    window.onload = () => {
+      fetch("get_regiones.php")
+        .then(res => res.json())
+        .then(data => {
+          const regionSelect = document.getElementById("region");
+          data.forEach(region => {
+            const option = document.createElement("option");
+            option.value = region;
+            option.textContent = region;
+            regionSelect.appendChild(option);
+          });
+        });
+    };
+  </script>
+</body>
+</html>

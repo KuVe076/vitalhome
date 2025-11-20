@@ -1,0 +1,43 @@
+const form = document.getElementById("form");
+const guardarBtn = document.getElementById("guardarBtn");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData();
+
+  formData.append("rut", document.getElementById("rut").value.trim());
+  formData.append("nombre", document.getElementById("nombre").value.trim());
+  formData.append("apellidos", document.getElementById("apellidos").value.trim());
+  formData.append("profesion", document.getElementById("profesion").value.trim());
+  formData.append("registro_sis", document.getElementById("registro").value.trim());
+  formData.append("mail", document.getElementById("mail").value.trim());
+  formData.append("region", document.getElementById("region").value);
+  formData.append("comuna", document.getElementById("comuna").value);
+  formData.append("fecha_ingreso", document.getElementById("fecha_ingreso").value);
+  formData.append("activo", document.querySelector('input[name="activo"]:checked').value);
+  formData.append("motivo", document.getElementById("motivo").value.trim());
+
+  const archivo = document.getElementById("cv").files[0];
+  if (archivo) {
+    formData.append("cv", archivo);
+  }
+
+  fetch("guardar_profesional.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("Profesional guardado correctamente.");
+      form.reset();
+      guardarBtn.disabled = true;
+    } else {
+      alert("Error: " + data.error);
+    }
+  })
+  .catch(err => {
+    alert("Error de conexión: " + err.message);
+  });
+});

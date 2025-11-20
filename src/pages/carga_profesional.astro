@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carga de Profesional</title>
+</head>
+<body>
+  <h1>Formulario de Profesional</h1>
+  <form id="form-profesional" enctype="multipart/form-data">
+    <label for="rut">RUT:</label><br />
+    <input type="text" id="rut" name="rut" required /><br />
+
+    <label for="nombre">Nombre:</label><br />
+    <input type="text" id="nombre" name="nombre" required /><br />
+
+    <label for="apellidos">Apellidos:</label><br />
+    <input type="text" id="apellidos" name="apellidos" required /><br />
+
+    <label for="profesion">Profesión:</label><br />
+    <input type="text" id="profesion" name="profesion" required /><br />
+
+    <label for="registro">Registro SIS:</label><br />
+    <input type="text" id="registro" name="registro_sis" required /><br />
+
+    <label for="mail">Correo electrónico:</label><br />
+    <input type="email" id="mail" name="mail" required /><br />
+
+    <label for="region">Región:</label><br />
+    <select id="region" name="region" required>
+      <option value="">Seleccione</option>
+      <option value="RM">Región Metropolitana</option>
+      <option value="V">Valparaíso</option>
+      <option value="VIII">Biobío</option>
+      <!-- Agrega más regiones según necesidad -->
+    </select><br />
+
+    <label for="comuna">Comuna:</label><br />
+    <select id="comuna" name="comuna" required>
+      <option value="">Seleccione</option>
+      <option value="Santiago">Santiago</option>
+      <option value="Providencia">Providencia</option>
+      <option value="Concepción">Concepción</option>
+      <!-- Agrega más comunas según necesidad -->
+    </select><br />
+
+    <label for="fecha_ingreso">Fecha de ingreso:</label><br />
+    <input type="date" id="fecha_ingreso" name="fecha_ingreso" required /><br />
+
+    <label>Activo:</label><br />
+    <input type="radio" id="activo_si" name="activo" value="si" checked /> <label for="activo_si">Sí</label>
+    <input type="radio" id="activo_no" name="activo" value="no" /> <label for="activo_no">No</label><br />
+
+    <label for="motivo">Motivo:</label><br />
+    <textarea id="motivo" name="motivo"></textarea><br />
+
+    <label for="cv">Currículum (PDF):</label><br />
+    <input type="file" id="cv" name="cv" accept="application/pdf" /><br /><br />
+
+    <button type="submit" id="guardarBtn">Guardar Profesional</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("form-profesional");
+    const guardarBtn = document.getElementById("guardarBtn");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+
+      formData.append("rut", document.getElementById("rut").value.trim());
+      formData.append("nombre", document.getElementById("nombre").value.trim());
+      formData.append("apellidos", document.getElementById("apellidos").value.trim());
+      formData.append("profesion", document.getElementById("profesion").value.trim());
+      formData.append("registro_sis", document.getElementById("registro").value.trim());
+      formData.append("mail", document.getElementById("mail").value.trim());
+      formData.append("region", document.getElementById("region").value);
+      formData.append("comuna", document.getElementById("comuna").value);
+      formData.append("fecha_ingreso", document.getElementById("fecha_ingreso").value);
+      formData.append("activo", document.querySelector('input[name="activo"]:checked').value);
+      formData.append("motivo", document.getElementById("motivo").value.trim());
+
+      const archivo = document.getElementById("cv").files[0];
+      if (archivo) {
+        formData.append("cv", archivo);
+      }
+
+      fetch("guardar_profesional.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert("Profesional guardado correctamente.");
+          form.reset();
+          guardarBtn.disabled = true;
+        } else {
+          alert("Error: " + data.error);
+        }
+      })
+      .catch(err => {
+        alert("Error de conexión: " + err.message);
+      });
+    });
+  </script>
+</body>
+</html>
